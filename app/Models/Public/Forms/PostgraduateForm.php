@@ -9,61 +9,68 @@ class PostgraduateForm extends Model
     public static function rules()
     {
         return [
-            'form.program' => 'required',
-            'form.fullName' => 'required|string|max:255',
-            'form.gender' => 'required|string',
-            'form.isBolivian' => 'required|boolean',
-            'form.ci' => 'required|string|max:255',
-            'form.exp' => 'required|string|max:255',
+            'form.nombre_completo' => 'required|string|max:255',
+            'form.genero' => 'required|string',
+            'form.es_boliviano' => 'required|boolean',
+            'form.ci' => 'string|max:255',
+            'form.ci_expedido' => 'string|max:255',
+            'form.telefono' => 'string|max:255',
+            'form.pasaporte' => 'nullable|string|max:255',
             'form.whatsapp' => 'required|string|max:15',
             'form.email' => 'required|email|max:255',
-            'form.profession' => 'required|string|max:255',
-            'form.university' => 'required|string|max:255',
-            'form.graduationYear' => 'required|integer',
-            'form.photo' => 'required|string',
-            'form.workExperience' => 'required|string',
+            'form.profesion' => 'required|string|max:255',
+            'form.universidad_origen' => 'required|string|max:255',
+            'form.anio_egreso' => 'required|integer',
+            'form.registro_uagrm' => 'nullable|string|max:255',
+            'form.institucion_trabajo' => 'required|string|max:255',
+            'form.url_foto' => 'required|string',
+            'form.experiencia_laboral' => 'required|string',
         ];
     }
 
-    // Método para los mensajes de error personalizados
     public static function messages()
     {
         return [
-            'form.program.required' => 'El programa es obligatorio.',
-            'form.fullName.required' => 'El nombre completo es obligatorio.',
-            'form.gender.required' => 'Debe seleccionar un género.',
-            'form.isBolivian.required' => 'Debe indicar si es boliviano o no.',
+            'form.nombre_completo.required' => 'El nombre completo es obligatorio.',
+            'form.genero.required' => 'Debe seleccionar un género.',
+            'form.es_boliviano.required' => 'Debe indicar si es boliviano o no.',
             'form.ci.required' => 'El carnet de identidad es obligatorio.',
-            'form.exp.required' => 'Debe completar la expedición del CI.',
+            'form.ci_expedido.required' => 'Debe completar la expedición del CI.',
+            'form.telefono.required' => 'El teléfono es obligatorio.',
             'form.whatsapp.required' => 'Debe ingresar su número de WhatsApp.',
+            'form.whatsapp.max' => 'El número de WhatsApp no debe superar los 15 caracteres.',
             'form.email.required' => 'El correo electrónico es obligatorio.',
             'form.email.email' => 'Debe ingresar un correo electrónico válido.',
-            'form.profession.required' => 'Debe ingresar su profesión.',
-            'form.university.required' => 'Debe ingresar su universidad de origen.',
-            'form.graduationYear.required' => 'Debe ingresar su año de egreso.',
-            'form.graduationYear.integer' => 'El año de egreso debe ser un número.',
-            'form.photo.required' => 'Debe subir una foto.',
-            'form.workExperience.required' => 'Debe describir su experiencia laboral.',
+            'form.profesion.required' => 'Debe ingresar su profesión.',
+            'form.universidad_origen.required' => 'Debe ingresar su universidad de origen.',
+            'form.anio_egreso.required' => 'Debe ingresar su año de egreso.',
+            'form.anio_egreso.integer' => 'El año de egreso debe ser un número.',
+            'form.url_foto.required' => 'Debe subir una foto.',
+            'form.experiencia_laboral.required' => 'Debe describir su experiencia laboral.',
+            'form.institucion_trabajo.required' => 'Debe ingresar la institución donde trabaja.',
         ];
     }
 
-    // Método para convertir el modelo a un array para la validación
     public static function Inicializar()
     {
         return [
-            'program' => 0,
-            'fullName' => "",
-            'gender' => "",
-            'isBolivian' => false,
+            'programa_id' => 0,
+            'nombre_completo' => "",
+            'genero' => "",
+            'es_boliviano' => false,
             'ci' => "",
-            'exp' => "",
+            'ci_expedido' => "",
+            'telefono' => "",
+            'pasaporte' => "",
             'whatsapp' => "",
             'email' => "",
-            'profession' => "",
-            'university' => "",
-            'graduationYear' => 0,
-            'photo' => "",
-            'workExperience' => "",
+            'profesion' => "",
+            'universidad_origen' => "",
+            'anio_egreso' => 0,
+            'registro_uagrm' => "",
+            'institucion_trabajo' => "",
+            'url_foto' => "",
+            'experiencia_laboral' => "",
         ];
     }
 }
