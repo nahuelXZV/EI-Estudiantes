@@ -1,7 +1,6 @@
 <div>
 
     <div class="max-w-4xl mx-auto border border-gray-300 p-6 shadow-lg bg-white py-10">
-        <!-- Encabezado -->
         <div class="flex flex-col md:flex-row items-center justify-between">
             <div class="mb-4 md:mb-0">
                 <img src="{{ asset('imgs/logo.jpg') }}" alt="Logo" class="w-32 md:w-44 h-16 object-contain">
@@ -21,8 +20,6 @@
                     Formulario de Inscripción
                 </h3>
             </div>
-            <!-- Programa -->
-            <!-- Botón Guardar -->
             @if (!$readonly)
                 <div class="flex justify-end mt-6">
                     <button wire:click="save"
@@ -44,37 +41,32 @@
                     <span class="font-medium">Error al guardar!</span> {{ session('error') }}
                 </div>
             @endif
-            <!-- Datos Programa -->
             <div class="bg-blue-900 text-white text-center py-2 mt-6 rounded-md">
                 <h3 class="font-bold text-base">Datos Del Programa</h3>
             </div>
             <div class="grid grid-cols-1 gap-4 mt-4 text-sm">
-                <!-- Nombre -->
                 <div>
                     <label class="font-semibold">Programa</label>
                     <input type="text" readonly
                         value="{{ $program->nombre . ' - ' . $program->version . '.' . $program->edicion }}"
-                        class="w-full border border-gray-400 p-2 mt-1 rounded">
+                        class="w-full border border-gray-400 p-2 mt-1 rounded" placeholder="Programa del curso">
                 </div>
             </div>
 
-            <!-- Datos Personales -->
             <div class="bg-blue-900 text-white text-center py-2 mt-6 rounded-md">
                 <h3 class="font-bold text-base">Datos Personales del Postgraduante</h3>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4 text-sm">
-                <!-- Nombre -->
                 <div class="md:col-span-2">
                     <label class="font-semibold">Nombre y Apellidos*</label>
                     <input type="text" wire:model.defer="form.nombre_completo" @readonly($readonly)
-                        class="w-full border border-gray-400 p-2 mt-1 rounded">
+                        class="w-full border border-gray-400 p-2 mt-1 rounded" placeholder="Ingresa tu nombre completo">
                     @error('form.nombre_completo')
                         <span class="text-red-500">{{ $message }}</span>
                     @enderror
                 </div>
 
-                <!-- Género -->
                 <div class="">
                     <label class="font-semibold">Género*</label>
                     <div class="flex flex-wrap gap-4 mt-1">
@@ -94,7 +86,6 @@
                     @enderror
                 </div>
 
-                <!-- Nacionalidad -->
                 <div class="">
                     <label class="font-semibold">Boliviano (a)*</label>
                     <div class="flex flex-wrap gap-4 mt-1">
@@ -114,11 +105,11 @@
                     @enderror
                 </div>
 
-                <!-- CI y Exp -->
                 <div>
                     <label class="font-semibold">Carnet de identidad</label>
                     <input type="text" wire:model.defer="form.ci" @readonly($readonly)
-                        class="w-full border border-gray-400 p-2 mt-1 rounded">
+                        class="w-full border border-gray-400 p-2 mt-1 rounded"
+                        placeholder="Ingresa tu carnet de identidad">
                     @error('form.ci')
                         <span class="text-red-500">{{ $message }}</span>
                     @enderror
@@ -126,94 +117,88 @@
                 <div>
                     <label class="font-semibold">Exp.</label>
                     <input type="text" wire:model.defer="form.ci_expedido" @readonly($readonly)
-                        class="w-full border border-gray-400 p-2 mt-1 rounded">
+                        class="w-full border border-gray-400 p-2 mt-1 rounded" placeholder="Lugar de emisión de CI">
                     @error('form.ci_expedido')
                         <span class="text-red-500">{{ $message }}</span>
                     @enderror
                 </div>
 
-                <!-- Pasaporte -->
                 <div>
                     <label class="font-semibold">Pasaporte</label>
                     <input type="text" wire:model.defer="form.pasaporte" @readonly($readonly)
-                        class="w-full border border-gray-400 p-2 mt-1 rounded">
+                        class="w-full border border-gray-400 p-2 mt-1 rounded" placeholder="Número de pasaporte">
                 </div>
 
-                <!-- Telefono -->
                 <div>
                     <label class="font-semibold">Telefono</label>
                     <input type="text" wire:model.defer="form.telefono" @readonly($readonly)
-                        class="w-full border border-gray-400 p-2 mt-1 rounded">
+                        class="w-full border border-gray-400 p-2 mt-1 rounded" placeholder="Número de teléfono">
                     @error('form.telefono')
                         <span class="text-red-500">{{ $message }}</span>
                     @enderror
                 </div>
 
-                <!-- WhatsApp -->
                 <div>
                     <label class="font-semibold">WhatsApp*</label>
                     <input type="text" wire:model.defer="form.whatsapp" @readonly($readonly)
-                        class="w-full border border-gray-400 p-2 mt-1 rounded">
+                        class="w-full border border-gray-400 p-2 mt-1 rounded" placeholder="Número de WhatsApp">
                     @error('form.whatsapp')
                         <span class="text-red-500">{{ $message }}</span>
                     @enderror
                 </div>
 
-                <!-- Email -->
                 <div class="md:col-span-2">
                     <label class="font-semibold">E-mail*</label>
                     <input type="email" wire:model.defer="form.email" @readonly($readonly)
-                        class="w-full border border-gray-400 p-2 mt-1 rounded">
+                        class="w-full border border-gray-400 p-2 mt-1 rounded" placeholder="Correo electrónico">
                     @error('form.email')
                         <span class="text-red-500">{{ $message }}</span>
                     @enderror
                 </div>
 
-                <!-- Profesión -->
                 <div>
                     <label class="font-semibold">Profesión*</label>
                     <input type="text" wire:model.defer="form.profesion" @readonly($readonly)
-                        class="w-full border border-gray-400 p-2 mt-1 rounded">
+                        class="w-full border border-gray-400 p-2 mt-1 rounded" placeholder="Tu profesión">
                     @error('form.profesion')
                         <span class="text-red-500">{{ $message }}</span>
                     @enderror
                 </div>
 
-                <!-- Universidad -->
                 <div>
                     <label class="font-semibold">Universidad de origen*</label>
                     <input type="text" wire:model.defer="form.universidad_origen" @readonly($readonly)
-                        class="w-full border border-gray-400 p-2 mt-1 rounded">
+                        class="w-full border border-gray-400 p-2 mt-1 rounded" placeholder="Universidad de origen">
                     @error('form.universidad_origen')
                         <span class="text-red-500">{{ $message }}</span>
                     @enderror
                 </div>
 
-                <!-- Año de Egreso -->
                 <div>
                     <label class="font-semibold">Año de egreso*</label>
                     <input type="number" wire:model.defer="form.anio_egreso" @readonly($readonly)
-                        class="w-full border border-gray-400 p-2 mt-1 rounded">
+                        class="w-full border border-gray-400 p-2 mt-1 rounded" placeholder="Año de egreso">
                     @error('form.anio_egreso')
                         <span class="text-red-500">{{ $message }}</span>
                     @enderror
                 </div>
 
-                <!-- Registro UAGRM -->
                 <div>
                     <label class="font-semibold">N° de Registro en la UAGRM</label>
                     <input type="number" wire:model.defer="form.registro_uagrm" @readonly($readonly)
-                        class="w-full border border-gray-400 p-2 mt-1 rounded">
+                        class="w-full border border-gray-400 p-2 mt-1 rounded" placeholder="Número de registro UAGRM">
                 </div>
 
-                <!-- Institución donde trabaja -->
                 <div class="md:col-span-2">
                     <label class="font-semibold">Institución en la que trabaja</label>
                     <input type="text" wire:model.defer="form.institucion_trabajo" @readonly($readonly)
-                        class="w-full border border-gray-400 p-2 mt-1 rounded">
+                        class="w-full border border-gray-400 p-2 mt-1 rounded"
+                        placeholder="Institución donde trabajas">
+                    @error('form.institucion_trabajo')
+                        <span class="text-red-500">{{ $message }}</span>
+                    @enderror
                 </div>
 
-                <!-- Subir Foto -->
                 <div class="md:col-span-2">
                     <label class="font-semibold">Subir una foto*</label>
                     <div class="flex items-center justify-center w-full">
@@ -255,7 +240,6 @@
                 </div>
             </div>
 
-            <!-- Experiencia Laboral -->
             <div class="bg-blue-900 text-white text-center py-2 mt-6 rounded-md">
                 <h3 class="font-bold text-base">Experiencia Laboral*</h3>
             </div>
@@ -289,8 +273,6 @@
             <img src="{{ asset('imgs/uagrm.png') }}" alt="Logo uagrm" class="h-16 object-contain">
             <img src="{{ asset('imgs/ei-logo.png') }}" alt="Logo ei" class="h-16 object-contain">
         </div>
-
-
     </div>
 
 </div>

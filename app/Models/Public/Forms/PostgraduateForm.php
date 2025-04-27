@@ -57,7 +57,7 @@ class PostgraduateForm extends Model
             'programa_id' => 0,
             'nombre_completo' => "",
             'genero' => "",
-            'es_boliviano' => false,
+            'es_boliviano' => true,
             'ci' => "",
             'ci_expedido' => "",
             'telefono' => "",
